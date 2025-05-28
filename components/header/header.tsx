@@ -2,6 +2,20 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { MobileMenu } from '../mobile-menu'
+<<<<<<< HEAD
+=======
+import { Button } from '../ui/button'
+import { FaWhatsapp } from 'react-icons/fa'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { ContactForm } from '../contact/contact'
+>>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
 
 export default function Header() {
   return (
@@ -27,6 +41,7 @@ export default function Header() {
           </Link>
         </nav>
 
+<<<<<<< HEAD
         <Link href="https://wa.me/" className="text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -53,6 +68,33 @@ export default function Header() {
         >
           Contact Us
         </Link>
+=======
+        <Link 
+          href="https://wa.me/917028801216" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#25D366] hover:text-[#128C7E] transition-colors"
+        >
+          <FaWhatsapp size={24} />
+        </Link>
+
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button className="bg-[#3af7f8] text-black px-4 py-2 md:px-6 md:py-3 font-medium text-sm lg:text-base hover:bg-opacity-90 transition-all hover:scale-105 active:scale-95">
+              Contact Us
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="bg-black border-gray-800 sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle className="text-[#3af7f8] text-2xl text-center">Contact Us</DialogTitle>
+              <DialogDescription className="text-center text-gray-400">
+                Fill out the form below and we'll get back to you soon.
+              </DialogDescription>
+            </DialogHeader>
+            <ContactForm />
+          </DialogContent>
+        </Dialog>
+>>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
 
         <MobileMenu />
       </div>

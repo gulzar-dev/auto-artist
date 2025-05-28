@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Facebook, Instagram } from 'lucide-react'
+=======
+import { Mail, Instagram } from 'lucide-react'
+>>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -28,10 +32,17 @@ export default function Footer() {
 
             <div className='text-white flex flex-col space-y-4 text-md font-extralight'>
               <h3 className="text-xl font-semibold mb-4 text-gray-300">Contact Us</h3>
+<<<<<<< HEAD
               <p>Address: Holkarwadi Rd, Pune, Maharashtra 412308</p>
               <p>Hours: Open 9:00 am - Closes 8:30 pm</p>
               <p>Phone: 080809 99477</p>
               <Link href="/locate" className="bg-[#3af7f8] text-black px-6 py-3 font-medium mt-6 md:mt-0">
+=======
+              <p>Address: Opp. D-mart Ambegaon, Near Rajyog Toyata, Katraj, Pune-411043</p>
+              <p>Hours: Open 9:00 am - Closes 10:00 pm</p>
+              <p>Phone: 070288 01216</p>
+              <Link href="https://g.co/kgs/TkJYZZ5" target='_blank' className="bg-[#3af7f8] text-black px-6 py-3 font-medium mt-6 md:mt-0">
+>>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
                 Locate to Shop
               </Link>
             </div>
@@ -40,10 +51,17 @@ export default function Footer() {
         </div>
           <div className="flex flex-row justify-center items-center gap-5 mt-12 text-gray-400">
             <p className='text-sm '>Auto Artist © 2025</p>
+<<<<<<< HEAD
             <Link href="/locate" className="bg-[#3af7f8] text-black px-3 py-3 font-medium mt-6 md:mt-0">
                 <Facebook />
             </Link>
             <Link href="/locate" className="bg-[#3af7f8] text-black px-3 py-3 font-medium mt-6 md:mt-0">
+=======
+            <Link href="mailto:autoartist007@gmail.com" className="bg-[#3af7f8] text-black px-3 py-3 font-medium mt-6 md:mt-0 hover:bg-[#2de6e7] transition-colors">
+                <Mail />
+            </Link>
+            <Link href="https://www.instagram.com/auto_artist_7/" target="_blank" rel="noopener noreferrer" className="bg-[#3af7f8] text-black px-3 py-3 font-medium mt-6 md:mt-0 hover:bg-[#2de6e7] transition-colors">
+>>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
                 <Instagram />
             </Link>
           </div>

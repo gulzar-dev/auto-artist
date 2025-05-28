@@ -3,6 +3,19 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
+<<<<<<< HEAD
+=======
+import { Button } from "./ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { ContactForm } from './contact/contact'
+>>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false)
@@ -48,6 +61,7 @@ export function MobileMenu() {
             >
               Client Reviews
             </Link>
+<<<<<<< HEAD
             <Link
               href="#contact"
               className="bg-[#3af7f8] text-black px-6 py-3 font-medium text-center mt-2"
@@ -55,6 +69,27 @@ export function MobileMenu() {
             >
               Contact Us
             </Link>
+=======
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button 
+                  className="w-full bg-[#3af7f8] text-black px-6 py-3 font-medium text-center mt-2 hover:bg-opacity-90 transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Contact Us
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="bg-black border-gray-800 sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle className="text-[#3af7f8] text-2xl text-center">Contact Us</DialogTitle>
+                  <DialogDescription className="text-center text-gray-400">
+                    Fill out the form below and we'll get back to you soon.
+                  </DialogDescription>
+                </DialogHeader>
+                <ContactForm />
+              </DialogContent>
+            </Dialog>
+>>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
           </nav>
         </div>
       )}
