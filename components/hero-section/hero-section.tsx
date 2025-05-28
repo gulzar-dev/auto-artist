@@ -4,8 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 export default function HeroSection() {
-  return (
-    <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
+  return (    <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
       {/* Background Image with fade-in animation */}
       <motion.div 
         className="absolute inset-0 z-0"
@@ -75,5 +74,6 @@ export default function HeroSection() {
         </motion.h1>
       </div>
     </section>
+
   )
 }

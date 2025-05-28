@@ -3,8 +3,6 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
-<<<<<<< HEAD
-=======
 import { Button } from "./ui/button"
 import {
   Dialog,
@@ -15,7 +13,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { ContactForm } from './contact/contact'
->>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false)
@@ -61,15 +58,6 @@ export function MobileMenu() {
             >
               Client Reviews
             </Link>
-<<<<<<< HEAD
-            <Link
-              href="#contact"
-              className="bg-[#3af7f8] text-black px-6 py-3 font-medium text-center mt-2"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact Us
-            </Link>
-=======
             <Dialog>
               <DialogTrigger asChild>
                 <Button 
@@ -89,7 +77,6 @@ export function MobileMenu() {
                 <ContactForm />
               </DialogContent>
             </Dialog>
->>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
           </nav>
         </div>
       )}

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 "use client"
->>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
 import React from 'react'
 import {
     Card,
@@ -12,21 +9,6 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 import Reviewcard from '../global/review-card'
-<<<<<<< HEAD
-
-  
-export default function Reviews() {
-    
-  return (
-    <section id="review" className="py-16 md:py-24 bg-black">
-        <div className="container mx-auto px-4 text-white">
-          <h2 className="text-[#3af7f8] text-4xl md:text-5xl font-bold text-center mb-16 uppercase"><span className='text-white'>What our </span>clients say</h2>
-
-          <div className="flex flex-wrap justify-center items-start flex-row gap-6 ">
-            <Reviewcard  />
-          </div>
-        </div>
-=======
 import { motion } from 'framer-motion'
 import Image from 'next/image';
 
@@ -151,7 +133,6 @@ export default function Reviews() {
           ))}
         </div>
       </div>
->>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
     </section>
   )
 }

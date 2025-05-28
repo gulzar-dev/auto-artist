@@ -10,10 +10,7 @@ import Image from "next/image"
 import Link from "next/link"
 import Reviews from "@/components/reviews/reviews"
 import Contact from "@/components/contact/contact"
-<<<<<<< HEAD
-=======
 import FollowUs from "@/components/follow-us/follow-us"
->>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
 
 export default function Home() {
   return (
@@ -31,28 +28,17 @@ export default function Home() {
       <Brands />
 
       {/* Services Section */}
-      <Services />
-
-      {/* Gallery Section */}
-<<<<<<< HEAD
-      <Gallery />
-=======
+      <Services />      {/* Gallery Section */}
       {/* <Gallery /> */}
       
       {/* Follow Us Section */}
       <FollowUs />
->>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
 
       {/* Unmatched Attention Section */}
       <UnMatched />
 
-      {/* Reviews Section */}
-      <Reviews />
+      {/* Reviews Section */}      <Reviews />
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
       {/* Contact Us Section */}
       <Contact />
 
