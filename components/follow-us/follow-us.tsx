@@ -8,67 +8,110 @@ const videos = [
   {
     id: 1,
     title: "Auto Artist Defender",
-    src: "/follow-us/Auto Artist Defender after video.mp4",
-    thumbnail: "/follow-us/thumbnails/Auto-Artist-Defender.png"
+    src: encodeURI("/follow-us/Auto Artist Defender after video.mp4"),
+    type: "video/mp4"
   },
   {
     id: 2,
     title: "Auto Artist Elevate",
-    src: "/follow-us/AUTO ARTIST ELEVATE.mp4",
-    thumbnail: "/follow-us/thumbnails/Auto-Artist-Elevate.png"
+    src: encodeURI("/follow-us/AUTO ARTIST ELEVATE.mp4"),
+    type: "video/mp4"
   },
   {
     id: 3,
     title: "Auto Artist BMW",
-    src: "/follow-us/Auto-Artist-BWM.mp4",
-    thumbnail: "/follow-us/thumbnails/Auto-Artist-BWM.png"
+    src: encodeURI("/follow-us/Auto-Artist-BWM.mp4"),
+    type: "video/mp4"
   },
   {
     id: 4,
+    title: "Auto Artist Safari",
+    src: encodeURI("/follow-us/AUTO ARTIST SAFARI.mp4"),
+    type: "video/mp4"
+  },
+  {
+    id: 5,
     title: "Auto Artist THAR ROXX",
-    src: "/follow-us/Auto Artist THAR ROXX.mp4",
-    thumbnail: "/follow-us/thumbnails/Auto-Artist-Thar-roxx.png"
+    src: encodeURI("/follow-us/Auto Artist THAR ROXX.mp4"),
+    type: "video/mp4"
   }
 ];
 
-export default function FollowUs() {  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+export default function FollowUs() {
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [playing, setPlaying] = useState<number | null>(null);
-  const [loading, setLoading] = useState<boolean[]>(Array(videos.length).fill(false));
-  const [error, setError] = useState<boolean[]>(Array(videos.length).fill(false));
+  const [loadingStates, setLoadingStates] = useState<boolean[]>(Array(videos.length).fill(false));
+  const handleVideoClick = async (index: number) => {
+    const video = videoRefs.current[index];
+    if (!video) return;
 
-  const handleVideoClick = (index: number) => {
-    if (error[index]) return; // Don't handle clicks on error state
-    
-    if (playing === index) {
-      videoRefs.current[index]?.pause();
-      setPlaying(null);
-    } else {      if (playing !== null) {
-        videoRefs.current[playing]?.pause();
+    try {
+      // If the same video is clicked while playing, pause it
+      if (playing === index) {
+        video.pause();
+        setPlaying(null);
+        return;
       }
-      setLoading(prev => {
-        const newLoading = [...prev];
-        newLoading[index] = true;
-        return newLoading;
+
+      // Show loading state for clicked video
+      setLoadingStates(prev => {
+        const newStates = [...prev];
+        newStates[index] = true;
+        return newStates;
       });
-      videoRefs.current[index]?.play()?.then(() => {
-        setLoading(prev => {
-          const newLoading = [...prev];
-          newLoading[index] = false;
-          return newLoading;
+
+      // Pause any currently playing video
+      if (playing !== null && videoRefs.current[playing]) {
+        const currentVideo = videoRefs.current[playing];
+        currentVideo.pause();
+        setPlaying(null);
+      }
+
+      // Reset the video if it ended
+      if (video.ended) {
+        video.currentTime = 0;
+      }
+
+      // Ensure video is ready to play
+      video.muted = true; // Always start muted to ensure playback
+      
+      const playVideo = async () => {
+        try {
+          console.log('Attempting to play video:', video.src);
+          await video.play();
+          console.log('Video playing successfully');
+          setPlaying(index);
+        } catch (playError) {
+          console.error('Play error:', playError);
+          throw playError;
+        }
+      };
+
+      if (video.readyState >= 3) {
+        await playVideo();
+      } else {
+        video.load();
+        await new Promise((resolve, reject) => {
+          video.oncanplay = () => resolve(true);
+          video.onerror = (e) => reject(new Error(`Video load error: ${e}`));
+          video.onloadeddata = () => console.log('Video data loaded');
         });
-        setPlaying(index);
-      }).catch(err => {
-        console.error('Error playing video:', err);
-        setError(prev => {
-          const newError = [...prev];
-          newError[index] = true;
-          return newError;
-        });
-        setLoading(prev => {
-          const newLoading = [...prev];
-          newLoading[index] = false;
-          return newLoading;
-        });
+        await playVideo();
+      }
+
+      // Update states after successful play
+      setPlaying(index);
+      setLoadingStates(prev => {
+        const newStates = [...prev];
+        newStates[index] = false;
+        return newStates;
+      });} catch (error) {
+      console.error('Video handling error:', error);
+    } finally {
+      setLoadingStates(prev => {
+        const newStates = [...prev];
+        newStates[index] = false;
+        return newStates;
       });
     }
   };
@@ -82,7 +125,8 @@ export default function FollowUs() {  const videoRefs = useRef<(HTMLVideoElement
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-        >          <span className='text-white'>Follow </span>Us
+        >
+          <span className='text-white'>Follow </span>Us
         </motion.h2>
 
         <div className="flex justify-center items-center mb-12">
@@ -97,74 +141,62 @@ export default function FollowUs() {  const videoRefs = useRef<(HTMLVideoElement
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {videos.map((video, index) => (
             <motion.div
               key={video.id}
-              className="relative aspect-video rounded-lg overflow-hidden group cursor-pointer"
+              className="relative aspect-video rounded-lg overflow-hidden bg-black/50 cursor-pointer group"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               onClick={() => handleVideoClick(index)}
             >              <video
-                ref={(el) => { void (videoRefs.current[index] = el); }}
-                src={video.src}
+                ref={(el: HTMLVideoElement | null): void => { videoRefs.current[index] = el }}
                 className="w-full h-full object-cover"
                 playsInline
-                poster={video.thumbnail}                preload="metadata"
-                onError={() => {
-                  setError(prev => {
-                    const newError = [...prev];
-                    newError[index] = true;
-                    return newError;
-                  });
-                  setLoading(prev => {
-                    const newLoading = [...prev];
-                    newLoading[index] = false;
-                    return newLoading;
+                preload="auto"
+                controls={false}
+                muted
+                loop
+                src={video.src}
+                onError={(e) => {
+                  console.error('Video error:', e);
+                  setLoadingStates(prev => {
+                    const newStates = [...prev];
+                    newStates[index] = false;
+                    return newStates;
                   });
                 }}
-              />
-              
-              {/* Loading Spinner */}
-              {loading[index] && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                  <div className="w-12 h-12 border-4 border-[#3af7f8] border-t-transparent rounded-full animate-spin"></div>
-                </div>
-              )}
-
-              {/* Error State */}
-              {error[index] && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                  <div className="text-white text-center p-4">
-                    <span className="text-4xl">⚠️</span>
-                    <p className="mt-2">Video unavailable</p>
+              /><div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity">
+                {loadingStates[index] ? (
+                  <div className="w-16 h-16 rounded-full bg-black/50 flex items-center justify-center">
+                    <svg className="animate-spin h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
                   </div>
-                </div>
-              )}
-              
-              {/* Play/Pause Overlay */}
-              {!loading[index] && !error[index] && (
-                <div className="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-300 group-hover:bg-opacity-20 flex items-center justify-center">
-                  <div className={`w-16 h-16 rounded-full bg-[#3af7f8] bg-opacity-80 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${playing === index ? 'scale-90' : 'scale-100'}`}>
-                    {playing === index ? (
-                      <span className="text-black text-2xl">⏸</span>
-                    ) : (
-                      <span className="text-black text-2xl ml-1">▶</span>
-                    )}
+                ) : playing === index ? (
+                  <div className="w-16 h-16 rounded-full bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6" />
+                    </svg>
                   </div>
-                </div>
-              )}
-
-              {/* Title Overlay */}
+                ) : (
+                  <div className="w-16 h-16 rounded-full bg-black/50 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    </svg>
+                  </div>
+                )}
+              </div>
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
-                <h3 className="text-white text-lg font-semibold">{video.title}</h3>
+                <h3 className="text-white font-semibold text-lg">{video.title}</h3>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

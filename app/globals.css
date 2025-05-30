@@ -3,18 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-<<<<<<< HEAD
-=======
-  html {
-    background-color: black;
-  }
-  
-  body {
-    background-color: black;
-    color: white;
-  }
-
->>>>>>> f12431e (Initial commit: Auto Artist website with Next.js and Tailwind)
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;

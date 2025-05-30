@@ -28,7 +28,7 @@ export default function Footer() {
 
             <div className='text-white flex flex-col space-y-4 text-md font-extralight'>
               <h3 className="text-xl font-semibold mb-4 text-gray-300">Contact Us</h3>
-              <p>Address: Opp. D-mart Ambegaon, Near Rajyog Toyata, Katraj, Pune-411043</p>
+              <p>Address: Opp. D-mart Ambegaon, Near Rajyog Toyata, Katraj, Pune-411046</p>
               <p>Hours: Open 9:00 am - Closes 10:00 pm</p>
               <p>Phone: 070288 01216</p>
               <Link href="https://g.co/kgs/TkJYZZ5" target='_blank' className="bg-[#3af7f8] text-black px-6 py-3 font-medium mt-6 md:mt-0">

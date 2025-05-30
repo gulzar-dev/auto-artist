@@ -146,7 +146,74 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-[#3af7f8] text-4xl md:text-5xl font-bold mb-4">Contact <span className="text-white">Us</span></h2>
-          <p className="text-lg text-gray-300">We'd love to hear from you. Get in touch with us for a consultation or quote.</p>
+          <p className="text-lg text-gray-300 mb-8">We'd love to hear from you. Get in touch with us for a consultation or quote.</p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto mb-12">
+            <motion.div
+              className="flex flex-col items-center p-6 rounded-lg bg-black/50 backdrop-blur-sm h-full min-h-[200px] justify-between"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <div className="flex flex-col items-center">
+                <div className="text-[#3af7f8] mb-4 p-3 rounded-full bg-black/30">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 10l.165-.155C6.024 7.124 9.402 5 13 5c3.598 0 6.976 2.124 9.835 4.845L23 10"/> 
+                    <path d="M13 19h0"/> <circle cx="13" cy="12" r="3"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Location</h3>
+                <p className="text-gray-300 text-center text-sm sm:text-base">Opp. D-mart Ambegaon,<br />Near Rajyog Toyata,<br />Katraj, Pune-411046</p>
+              </div>
+              <a 
+                href="https://g.co/kgs/TkJYZZ5" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="mt-4 text-sm text-[#3af7f8] hover:text-[#3af7f8]/80 transition-colors"
+              >
+                View on Map →
+              </a>
+            </motion.div>
+
+            <motion.div
+              className="flex flex-col items-center p-6 rounded-lg bg-black/50 backdrop-blur-sm h-full min-h-[200px] justify-between"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="flex flex-col items-center">
+                <div className="text-[#3af7f8] mb-4 p-3 rounded-full bg-black/30">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Phone</h3>
+                <a href="tel:+917028801216" className="text-gray-300 hover:text-[#3af7f8] transition-colors text-sm sm:text-base">+91 70288 01216</a>
+              </div>
+              <p className="mt-4 text-sm text-gray-400">Available 24/7</p>
+            </motion.div>
+
+            <motion.div
+              className="flex flex-col items-center p-6 rounded-lg bg-black/50 backdrop-blur-sm h-full min-h-[200px] justify-between sm:col-span-2 md:col-span-1"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <div className="flex flex-col items-center">
+                <div className="text-[#3af7f8] mb-4 p-3 rounded-full bg-black/30">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Email</h3>
+                <a href="mailto:info@autoartistnc.com" className="text-gray-300 hover:text-[#3af7f8] transition-colors text-sm sm:text-base">info@autoartistnc.com</a>
+              </div>
+              <p className="mt-4 text-sm text-gray-400">We'll respond within 24 hours</p>
+            </motion.div>
+          </div>
         </motion.div>
 
         <motion.div 

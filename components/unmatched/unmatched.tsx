@@ -18,8 +18,8 @@ const trustIcons = [
   { src: "/trusts icons/premium quality service.png", alt: "premium quality service", text: "premium quality service" },
   { src: "/trusts icons/Elite Surface Specialist.png", alt: "Elite Surface Specialist", text: "Elite Surface Specialist" },
   { src: "/trusts icons/Licensed and insured.png", alt: "Licensed and insured", text: "Licensed and insured" },
-  { src: "/trusts icons/Family and Veteran owned.png", alt: "Family and Veteran owned", text: "Family and Veteran owned" },
-  { src: "/trusts icons/Quality Products.png", alt: "Quality Products", text: "Quality Products" },
+  { src: "/trusts icons/Family and Veteran owned.png", alt: "Family and Veteran owned", text: "Family and Veteran owned" },
+  { src: "/trusts icons/Quality Products.png", alt: "Quality Products", text: "Quality Products" },
   { src: "/trusts icons/Elite level service promised.png", alt: "Elite level service promised", text: "Elite level service promised" }
 ];
 
