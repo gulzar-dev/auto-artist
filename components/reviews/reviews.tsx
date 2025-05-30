@@ -108,14 +108,14 @@ export default function Reviews() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 + 0.4 }}
               >
-                <div className="relative h-12 w-12 rounded-full overflow-hidden mr-4">
+                {/* <div className="relative h-12 w-12 rounded-full overflow-hidden mr-4">
                   <Image
                     src={review.image}
                     alt={review.name}
                     fill
                     className="object-cover"
                   />
-                </div>
+                </div> */}
                 <div>
                   <h4 className="font-semibold text-white">{review.name}</h4>
                   <p className="text-sm text-gray-400">Verified Customer</p>

@@ -4,7 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 export default function Brands() {
-  const brandLogos = [
+  const brandLogos = [ 
     { src: "/brands/toyota.png", alt: "Toyota" },
     { src: "/brands/vw.png", alt: "VW" },
     { src: "/brands/suzuki.png", alt: "Suzuki" },
