@@ -6,17 +6,17 @@ import { motion } from 'framer-motion'
 export default function Brands() {
   const brandLogos = [ 
     { src: "/brands/toyota.png", alt: "Toyota" },
-    { src: "/brands/vw.png", alt: "VW" },
+    { src: "/brands/VW.png", alt: "VW" },
     { src: "/brands/suzuki.png", alt: "Suzuki" },
-    { src: "/brands/honda.png", alt: "HONDA" },
-    { src: "/brands/bmw.png", alt: "BMW" },
-    { src: "/brands/audi.png", alt: "Audi" },
-    { src: "/brands/lamborghini.png", alt: "Lamborghini" },
-    { src: "/brands/lexus.png", alt: "Lexus" },
-    { src: "/brands/jaguar.png", alt: "Jaguar" },
-    { src: "/brands/porsche.png", alt: "Porsche" },
-    { src: "/brands/mercedes.png", alt: "Mercedes" },
-    { src: "/brands/bentley.png", alt: "Bentley" }
+    { src: "/brands/HONDA.png", alt: "HONDA" },
+    { src: "/brands/BMW.png", alt: "BMW" },
+    { src: "/brands/Audi.png", alt: "Audi" },
+    { src: "/brands/Lamborghini.png", alt: "Lamborghini" },
+    { src: "/brands/Lexus.png", alt: "Lexus" },
+    { src: "/brands/Jaguar.png", alt: "Jaguar" },
+    { src: "/brands/Porsche.png", alt: "Porsche" },
+    { src: "/brands/Mercedes.png", alt: "Mercedes" },
+    { src: "/brands/Bentley.png", alt: "Bentley" }
   ];
 
   return (
