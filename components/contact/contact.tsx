@@ -101,11 +101,13 @@ export function ContactForm() {
           <SelectTrigger className="bg-gray-900 border-gray-700 text-white">
             <SelectValue placeholder="Select a service" />
           </SelectTrigger>
-          <SelectContent className="bg-gray-900 border-gray-700">
+          <SelectContent className="bg-gray-900 border-gray-700 text-[#3af7f8]">
             <SelectItem value="ppf">Paint Protection Film (PPF)</SelectItem>
-            <SelectItem value="ceramic">Ceramic Coating</SelectItem>
+            <SelectItem value="ceramic">Ceramic Coating/Graphene Coating</SelectItem>
             <SelectItem value="wrap">Vehicle Wrap</SelectItem>
-            <SelectItem value="window">Window Tinting</SelectItem>
+            <SelectItem value="cleaning">Deep Cleaning</SelectItem>
+            <SelectItem value="detaing">Detaing</SelectItem>
+            <SelectItem value="paint">Paint Job</SelectItem>
             <SelectItem value="other">Other</SelectItem>
           </SelectContent>
         </Select>
